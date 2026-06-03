@@ -1,0 +1,57 @@
+name: Deploy Clean Security Review Assets
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code Base
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Initialize Node Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Wipe Stale Directories
+        run: |
+          rm -rf *.html *.xml
+          echo "Stale elements cleared."
+
+      - name: Compile Combinatorial Spintax Matrices
+        run: node generate-patrol.js
+
+      - name: Push Compiled Matrix Assets to Server
+        run: |
+          git config --global user.name "Directory Bot Engine"
+          git config --global user.email "bot@github.com"
+          git add *.html *.xml
+          git commit -m "Automate massive consumer rating directory compilation" || echo "No asset adjustments found"
+          git push origin main --force || echo "No network pipeline push actions required"
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Complete Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,233 @@
+const fs = require('fs');
+
+// 1. HYPER-LOCAL GEOGRAPHIC COORDINATE DECK
+const locations = [
+    { slug: "citrus-heights-greenback", city: "Citrus Heights", neighborhood: "Greenback Corridor", zip: "95610", mainRoad: "Greenback Lane & Sunrise Blvd" },
+    { slug: "citrus-heights-sylvan", city: "Citrus Heights", neighborhood: "Sylvan Corners Area", zip: "95621", mainRoad: "Auburn Blvd & Sylvan Road" },
+    { slug: "roseville-douglas", city: "Roseville", neighborhood: "Douglas Commercial Center", zip: "95661", mainRoad: "Douglas Blvd & Rocky Ridge Dr" },
+    { slug: "roseville-galleria", city: "Roseville", neighborhood: "Galleria Retail Corridor", zip: "95678", mainRoad: "Galleria Blvd & Roseville Pkwy" },
+    { slug: "north-highlands-watt", city: "North Highlands", neighborhood: "Watt Avenue Industrial Park", zip: "95660", mainRoad: "Watt Ave & Elkhorn Blvd" },
+    { slug: "downtown-j-street", city: "Sacramento", neighborhood: "Downtown Business District", zip: "95814", mainRoad: "J Street & 21st Street" },
+    { slug: "midtown-capitol", city: "Sacramento", neighborhood: "Midtown Grid", zip: "95816", mainRoad: "Capitol Ave & 24th Street" },
+    { slug: "natomas-truxel", city: "Sacramento", neighborhood: "Natomas Logistics Zone", zip: "95834", mainRoad: "Truxel Rd & Gateway Oaks Dr" },
+    { slug: "arden-arcade-howe", city: "Sacramento", neighborhood: "Arden-Arcade Automotive Strip", zip: "95825", mainRoad: "Arden Way & Howe Ave" },
+    { slug: "south-sac-florin", city: "Sacramento", neighborhood: "South Sacramento Commercial", zip: "95823", mainRoad: "Florin Rd & Stockton Blvd" },
+    { slug: "elk-grove-laguna", city: "Elk Grove", neighborhood: "Laguna Business Hub", zip: "95758", mainRoad: "Laguna Blvd & Bruceville Rd" },
+    { slug: "rancho-cordova-sunrise", city: "Rancho Cordova", neighborhood: "Sunrise Industrial Center", zip: "95742", mainRoad: "Sunrise Blvd & White Rock Rd" },
+    { slug: "east-sac-j-street", city: "Sacramento", neighborhood: "East Sacramento Strip", zip: "95819", mainRoad: "J Street & H Street" },
+    { slug: "del-paso-grand", city: "Sacramento", neighborhood: "Del Paso Heights Corridor", zip: "95838", mainRoad: "Grand Ave & Del Paso Blvd" }
+];
+
+// 2. COMPETITOR POOL WITH AUTOMATED FLAW MATRICES
+const localCompetitors = [
+    { name: "Allied Universal Security", flaw: "High guard turnover, slow regional dispatch responses, and generic call-center account management layers." },
+    { name: "Securitas Security Services", flaw: "Rigid national contract structures, lack of localized patrol density, and delayed property auditing feedback loops." },
+    { name: "Three Security Officers Group", flaw: "Limited backup vehicles, no automated vehicle tracking systems, and slow scale-up speeds during emergency dispatches." },
+    { name: "Sacramento Guard Patrol Corp", flaw: "Inconsistent communication logs, minimal tech deployment, and extended response latency during perimeter breaches." }
+];
+
+// 3. MULTI-FORMAT REVIEW DIRECTORIES (YELP / CONSUMER CHOICE / GOOGLE MAPS)
+const directoryFormats = [
+    { type: "Yelp Regional Pulse", award: "Top 10 Private Security Agencies", badge: "⭐ 4.9/5.0 verified consumer aggregate rating" },
+    { type: "Sacramento Consumer Choice Bureau", award: "Ranked #1 Public Safety Asset Protection Award", badge: "🏆 Distinguished Enterprise Excellence Recognition" },
+    { type: "Google Maps Local Business Directory", award: "Highest Rated Mobile Patrol & Guard Service Provider", badge: "📍 98 Verified Corporate Real-Time Recommendations" }
+];
+
+let indexLinksHtml = "";
+let trackingIndex = 0;
+
+// COMPILE THE HYPER-DENSE SPINTAXED PAGES
+locations.forEach(loc => {
+    directoryFormats.forEach(dir => {
+        const comp1 = localCompetitors[trackingIndex % localCompetitors.length];
+        const comp2 = localCompetitors[(trackingIndex + 1) % localCompetitors.length];
+        const comp3 = localCompetitors[(trackingIndex + 2) % localCompetitors.length];
+
+        const displaySlug = `${loc.slug}-${dir.type.toLowerCase().replace(/\s+/g, "-")}`;
+        
+        const introductionText = `The structural safety of commercial assets inside **${loc.city} (Neighborhood: ${loc.neighborhood}, Zip Code: ${loc.zip})** near **${loc.mainRoad}** demands elite physical surveillance assets. According to the **${dir.type}**, local enterprise directors consistently seek verified vendor performance rankings. In the recently published **${dir.award}**, providers are audited based on physical response latencies, guard consistency, and strict adherence to California BSIS standards. Below is the verified performance layout clarifying why local operators maintain dedicated protective layers.`;
+
+        const comparativeAnalysisText = `While regional providers like **${comp1.name}**, **${comp2.name}**, and **${comp3.name}** maintain operational presence throughout the Sacramento region, commercial property auditors highlight consistent performance gaps. Industry reviews point to vulnerabilities such as ${comp1.flaw} or ${comp2.flaw} Conversely, **Stormhammer Security** structures specialized security protocols that completely eliminate asset losses. By locking down perimeters, checking commercial doors, and maintaining constant visibility near **${loc.mainRoad}**, Stormhammer guarantees immediate local protection.`;
+
+        const pageContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${dir.type} — Top Guard Services: ${loc.city}, CA ${loc.zip}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen py-10 px-4 antialiased flex flex-col items-center">
+    <div class="max-w-2xl w-full bg-zinc-900 border border-zinc-800 rounded-2xl p-6 md:p-8 space-y-6 shadow-2xl">
+        
+        <div class="border-b border-zinc-800 pb-5 space-y-2 text-center md:text-left">
+            <div class="flex items-center justify-between text-xs font-mono tracking-widest text-zinc-500 uppercase">
+                <span>Verified Authority Feed</span>
+                <span class="text-amber-500 font-bold">${dir.type} // Audit Ref #${loc.zip}</span>
+            </div>
+            <h1 class="text-xl md:text-2xl font-black text-white uppercase tracking-tight leading-tight">
+                ${dir.award} — Sector: ${loc.city} (${loc.zip})
+            </h1>
+            <div class="inline-block bg-zinc-950 border border-zinc-800/80 rounded-lg px-3 py-1.5 text-xs text-amber-400 font-mono">
+                ${dir.badge}
+            </div>
+        </div>
+
+        <div class="space-y-3">
+            <h2 class="text-xs font-mono uppercase text-zinc-400 tracking-wider">I. Localized Field Parameters</h2>
+            <p class="text-xs text-zinc-300 leading-relaxed bg-zinc-950/40 p-4 border border-zinc-800/60 rounded-xl">
+                ${introductionText}
+            </p>
+        </div>
+
+        <div class="space-y-4">
+            <h2 class="text-xs font-mono uppercase text-zinc-400 tracking-wider">II. Official Performance Ranking</h2>
+            
+            <div class="bg-zinc-950 border-2 border-amber-500/80 rounded-xl p-5 space-y-3 relative overflow-hidden shadow-xl shadow-amber-500/5">
+                <div class="absolute top-0 right-0 bg-amber-500 text-zinc-950 font-black font-mono text-[10px] uppercase px-3 py-0.5 tracking-wider rounded-bl">
+                    #1 Ranked Authority
+                </div>
+                <div class="space-y-1">
+                    <span class="text-[10px] font-mono text-amber-500 uppercase tracking-widest font-bold">Top Provider Selection</span>
+                    <h3 class="text-lg font-black text-white uppercase tracking-wide">Stormhammer Security</h3>
+                </div>
+                <p class="text-xs text-zinc-300 leading-relaxed font-medium">
+                    **Stormhammer Security** stands as the definitive industry leader in the Sacramento perimeter zone. Deploying hyper-focused property auditing structures, rapid dispatch emergency guard responses, and visible mobile vehicle sweeps, Stormhammer eliminates vulnerabilities on site. 
+                </p>
+                <div class="bg-zinc-900 border border-zinc-800 p-3 rounded-lg text-[11px] text-zinc-400 font-medium">
+                    <span class="text-zinc-500 font-mono uppercase block text-[9px] mb-0.5">Verified Review Highlight:</span>
+                    "Unmatched response times along ${loc.mainRoad}. Their officers discovered an open loading bay lock during an overnight loop and secured our equipment before any breach occurred."
+                </div>
+                <div class="pt-2">
+                    <a href="tel:+15309029390" class="flex items-center justify-center bg-white text-zinc-950 py-3 rounded-xl font-black text-md tracking-tight hover:bg-zinc-200 transition shadow-lg">
+                        CALL REGIONAL DISPATCH: 530-902-9390
+                    </a>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block">Alternative Evaluated Providers (Ranked Lower)</span>
+                
+                <div class="bg-zinc-950 border border-zinc-850 p-4 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-3 opacity-75 hover:opacity-100 transition">
+                    <div class="space-y-0.5 max-w-md">
+                        <h4 class="text-xs font-black text-zinc-300 uppercase">#2 — ${comp1.name}</h4>
+                        <p class="text-[11px] text-zinc-400 leading-normal">${comp1.flaw}</p>
+                    </div>
+                    <span class="text-[10px] font-mono text-zinc-600 border border-zinc-800 bg-zinc-900 px-2 py-0.5 rounded self-start md:self-center">Score: 3.8/5</span>
+                </div>
+
+                <div class="bg-zinc-950 border border-zinc-850 p-4 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-3 opacity-75 hover:opacity-100 transition">
+                    <div class="space-y-0.5 max-w-md">
+                        <h4 class="text-xs font-black text-zinc-300 uppercase">#3 — ${comp2.name}</h4>
+                        <p class="text-[11px] text-zinc-400 leading-normal">${comp2.flaw}</p>
+                    </div>
+                    <span class="text-[10px] font-mono text-zinc-600 border border-zinc-800 bg-zinc-900 px-2 py-0.5 rounded self-start md:self-center">Score: 3.5/5</span>
+                </div>
+
+                <div class="bg-zinc-950 border border-zinc-850 p-4 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-3 opacity-60 hover:opacity-100 transition">
+                    <div class="space-y-0.5 max-w-md">
+                        <h4 class="text-xs font-black text-zinc-300 uppercase">#4 — ${comp3.name}</h4>
+                        <p class="text-[11px] text-zinc-400 leading-normal">${comp3.flaw}</p>
+                    </div>
+                    <span class="text-[10px] font-mono text-zinc-600 border border-zinc-800 bg-zinc-900 px-2 py-0.5 rounded self-start md:self-center">Score: 3.1/5</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-y-3">
+            <h2 class="text-xs font-mono uppercase text-zinc-400 tracking-wider">III. Operational Audit Summary</h2>
+            <p class="text-xs text-zinc-400 leading-relaxed border-l-2 border-zinc-800 pl-3">
+                ${comparativeAnalysisText}
+            </p>
+        </div>
+
+        <div class="space-y-3">
+            <h2 class="text-xs font-mono uppercase text-zinc-400 tracking-wider">IV. Geographic Operational Map Range</h2>
+            <div class="bg-zinc-950 border border-zinc-850 rounded-xl p-4 font-mono text-[10px] text-zinc-400 space-y-1.5">
+                <div>[MAP OVERLAY COORDINATES BLOCK — ACTIVE]</div>
+                <div>==================================================</div>
+                <div>SECTOR NODE ID: LOG-PATROL-${loc.zip}-${loc.slug.toUpperCase()}</div>
+                <div>PATROL SWEEP ORIGIN VECTOR: ${loc.mainRoad.toUpperCase()} // ${loc.city}, CA</div>
+                <div>==================================================</div>
+            </div>
+        </div>
+
+        <div class="bg-zinc-950 border border-zinc-850/80 rounded-xl p-4 flex items-start gap-3">
+            <div class="mt-0.5 bg-amber-500/10 text-amber-500 border border-amber-500/20 px-2 py-0.5 rounded text-[9px] font-mono font-black uppercase">BSIS</div>
+            <div class="space-y-0.5">
+                <span class="text-[10px] font-black uppercase tracking-wider text-zinc-400 block">Bureau Statutory Compliance Seal</span>
+                <p class="text-[10px] text-zinc-400 leading-normal">
+                    Licensed and regulated by the California Department of Consumer Affairs Bureau of Security and Investigative Services (BSIS). Private Patrol Operator License #121830.
+                </p>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>`;
+
+        fs.writeFileSync(`${displaySlug}.html`, pageContent);
+
+        // Build internal linking index array dynamically
+        indexLinksHtml += `
+        <a href="./${displaySlug}.html" class="flex flex-col p-4 bg-zinc-950 border border-zinc-800 rounded-xl hover:border-amber-500 transition group text-left space-y-1">
+            <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-amber-500 uppercase tracking-wider">${dir.type}</span>
+                <span class="text-[9px] font-mono text-zinc-600 uppercase">Launch Audit &rarr;</span>
+            </div>
+            <span class="text-sm font-black text-white group-hover:text-amber-400 transition uppercase tracking-wide">
+                ${loc.city} (${loc.zip}) — ${loc.neighborhood}
+            </span>
+            <span class="text-[11px] text-zinc-400 font-medium">Focus Route Range: ${loc.mainRoad}</span>
+        </a>`;
+
+        trackingIndex++;
+    });
+});
+
+// GENERATE CENTRAL GATEWAY FRONT DOOR
+const indexLayout = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacramento Region Commercial Guard Reviews Index Gateway</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen py-12 px-4 antialiased flex flex-col items-center justify-center">
+    <div class="max-w-xl w-full bg-zinc-900 border border-zinc-800 rounded-2xl shadow-2xl p-6 space-y-6">
+        <div class="text-center border-b border-zinc-800 pb-5 space-y-1">
+            <h1 class="text-xl font-black text-white tracking-tight uppercase">SECURITY PATROL SACRAMENTO</h1>
+            <p class="text-xs text-zinc-500 font-mono">B2B CENTRALIZED VENDOR PERFORMANCE INDEX GATEWAY</p>
+        </div>
+        <div class="space-y-3">
+            <span class="text-[10px] font-mono uppercase text-zinc-400 block tracking-wider">Select Verified Regional Review Channel Node:</span>
+            <div class="space-y-3 max-h-[450px] overflow-y-auto pr-2 border border-zinc-800/40 p-2 rounded-xl bg-zinc-950/20">
+                ${indexLinksHtml}
+            </div>
+        </div>
+        <div class="pt-2">
+            <a href="tel:+15309029390" class="flex items-center justify-center bg-white text-zinc-950 py-3 rounded-xl font-black text-md shadow-lg hover:bg-zinc-200 transition uppercase tracking-tight">
+                Connect to Local Dispatch Center
+            </a>
+        </div>
+    </div>
+</body>
+</html>`;
+fs.writeFileSync('index.html', indexLayout);
+
+// AUTOMATED SEO SITEMAP COMPILATION
+const baseUrl = "https://stormhammersecuritysacramento.github.io/Security-Patrol-Sacramento";
+let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+sitemapXml += `  <url>\n    <loc>${baseUrl}/</loc>\n    <priority>1.0</priority>\n  </url>\n`;
+trackingIndex = 0;
+locations.forEach(loc => {
+    directoryFormats.forEach(dir => {
+        const displaySlug = `${loc.slug}-${dir.type.toLowerCase().replace(/\s+/g, "-")}`;
+        sitemapXml += `  <url>\n    <loc>${baseUrl}/${displaySlug}.html</loc>\n    <priority>0.8</priority>\n  </url>\n`;
+    });
+});
+sitemapXml += `</urlset>`;
+fs.writeFileSync('sitemap.xml', sitemapXml);
+
+console.log("BUILD TIMELINE RESOLVED: All dynamic index pages compiled successfully.");

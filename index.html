@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps — Private Security Patrols near Sacramento County, CA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen antialiased flex flex-col items-center py-4 px-2 sm:px-4">
+
+    <!-- MAIN MAPCONTAINER CASE -->
+    <div class="max-w-xl w-full bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col">
+        
+        <!-- SEARCH TOP BAR -->
+        <div class="p-4 bg-zinc-900 border-b border-zinc-800 flex items-center gap-3">
+            <div class="flex-1 bg-zinc-950 border border-zinc-800 rounded-full px-4 py-2.5 flex items-center justify-between shadow-inner">
+                <div class="flex items-center gap-2 min-w-0">
+                    <span class="text-red-500 font-bold text-sm">📍</span>
+                    <span class="text-xs font-medium text-zinc-350 truncate">Security guards near Sacramento, CA</span>
+                </div>
+                <span class="text-zinc-500 text-xs font-mono">🔍</span>
+            </div>
+        </div>
+
+        <!-- REPLICATED VISUAL GOOGLE MAP GRID OVERLAY -->
+        <div class="h-44 bg-zinc-950 relative border-b border-zinc-800 overflow-hidden flex flex-col items-center justify-center font-mono text-[9px] text-zinc-600 select-none">
+            <!-- Background grid lines simulating road networks -->
+            <div class="absolute inset-0 opacity-15 bg-[linear-gradient(to_right,#3f3f46_1px,transparent_1px),linear-gradient(to_bottom,#3f3f46_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+            
+            <!-- Diagonal Arterial Highways -->
+            <div class="absolute w-[150%] h-[2px] bg-zinc-800/40 rotate-12 top-12"></div>
+            <div class="absolute w-[150%] h-[3px] bg-zinc-800/40 -rotate-45 top-20"></div>
+            <div class="absolute top-8 left-10 text-zinc-700 tracking-wider font-bold">HWY 80</div>
+            <div class="absolute top-24 right-16 text-zinc-700 tracking-wider font-bold">WATT AVE</div>
+
+            <!-- PIN 1: STORMHAMMER (Top Priority Accent) -->
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-10 animate-pulse">
+                <div class="bg-amber-500 text-zinc-950 font-black text-[9px] px-2 py-0.5 rounded shadow-lg uppercase tracking-tight border border-amber-400">
+                    ⭐ Stormhammer #1
+                </div>
+                <div class="text-base text-amber-500 -mt-1 drop-shadow-md">📍</div>
+            </div>
+
+            <!-- PIN 2: COMPETITOR -->
+            <div class="absolute top-8 right-24 flex flex-col items-center opacity-40">
+                <div class="bg-zinc-800 text-zinc-400 text-[8px] px-1 py-0.5 rounded">Allied Univ</div>
+                <div class="text-xs text-zinc-500">📍</div>
+            </div>
+
+            <!-- PIN 3: COMPETITOR -->
+            <div class="absolute bottom-6 left-20 flex flex-col items-center opacity-40">
+                <div class="bg-zinc-800 text-zinc-400 text-[8px] px-1 py-0.5 rounded">Securitas</div>
+                <div class="text-xs text-zinc-500">📍</div>
+            </div>
+
+            <div class="absolute bottom-2 right-3 bg-zinc-900/90 border border-zinc-800 px-2 py-0.5 rounded text-[8px] font-sans text-zinc-400 font-medium">
+                🗺️ Live Map Sweep Grid Active
+            </div>
+        </div>
+
+        <!-- GOOGLE MAPS LOCAL 3-PACK RESULTS LIST -->
+        <div class="divide-y divide-zinc-800 bg-zinc-950/20">
+            
+            <!-- RESULT 1: STORMHAMMER SECURITY (RANKED #1 + AD FEATURED) -->
+            <div class="p-4 sm:p-5 space-y-3 bg-gradient-to-r from-amber-500/5 to-transparent hover:bg-zinc-900/40 transition">
+                <div class="flex items-start justify-between gap-2">
+                    <div class="space-y-1 min-w-0">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <span class="bg-amber-500 text-zinc-950 text-[9px] font-black font-mono tracking-widest px-1.5 py-0.5 rounded">AD</span>
+                            <h2 class="text-base font-black text-white uppercase tracking-wide truncate">Stormhammer Security</h2>
+                        </div>
+                        
+                        <!-- RATING & REVIEWS BLOCK -->
+                        <div class="flex items-center gap-1 text-xs font-mono">
+                            <span class="text-amber-400 font-black">5.0</span>
+                            <span class="text-amber-400">★★★★★</span>
+                            <span class="text-zinc-500">(20)</span>
+                            <span class="text-zinc-600">•</span>
+                            <span class="text-zinc-400">Private Patrol Operator</span>
+                        </div>
+                    </div>
+                    
+                    <!-- ACTION ICON BUTTON -->
+                    <a href="tel:+15309029390" class="bg-zinc-900 border border-zinc-700/80 p-3 rounded-full hover:bg-zinc-800 transition shadow-md shrink-0">
+                        📞
+                    </a>
+                </div>
+
+                <!-- ADDRESS & ROUTE ATTRIBUTES -->
+                <div class="text-xs text-zinc-400 font-medium space-y-0.5 font-sans">
+                    <div>📍 Sector Route Focus: Sacramento County, Citrus Heights & Roseville Corridors</div>
+                    <div class="text-emerald-400 font-mono font-bold text-[11px]">⚡ Open 24/7 • Mobile Dispatch Station On Call</div>
+                </div>
+
+                <!-- VERIFIED REVIEW SNAPSHOT -->
+                <div class="bg-zinc-950 border border-zinc-850 p-3 rounded-xl text-[11px] text-zinc-400 leading-normal font-medium shadow-inner">
+                    <span class="text-zinc-500 font-mono text-[9px] uppercase font-bold block mb-0.5">John M. (Verified Manager Report):</span>
+                    "Top tier. Our hardware perimeter gate was left loose overnight along the Greenback Lane corridor. Stormhammer's vehicle unit spotted it immediately on their pass, secured the site, and stayed until morning. 5 stars."
+                </div>
+            </div>
+
+            <!-- RESULT 2: ALLIED UNIVERSAL (RANKED #2) -->
+            <div class="p-4 sm:p-5 space-y-2 opacity-70 hover:opacity-100 transition">
+                <div class="flex items-start justify-between gap-2">
+                    <div class="space-y-0.5">
+                        <h3 class="text-sm font-bold text-zinc-300 uppercase">2. Allied Universal Security</h3>
+                        <div class="flex items-center gap-1 text-[11px] font-mono">
+                            <span class="text-red-400 font-bold">2.3</span>
+                            <span class="text-red-400">★★☆☆☆</span>
+                            <span class="text-zinc-500">(50)</span>
+                        </div>
+                    </div>
+                    <span class="text-[9px] font-mono text-zinc-600 bg-zinc-950 px-2 py-0.5 rounded border border-zinc-850 self-start">4.2 mi</span>
+                </div>
+                <div class="text-xs text-zinc-450 text-zinc-500 font-sans">📍 Sacramento Regional Hub Office</div>
+                <div class="bg-zinc-950/60 border border-zinc-900 p-3 rounded-xl text-[11px] text-zinc-400 leading-normal font-medium">
+                    <span class="text-zinc-600 font-mono text-[9px] uppercase font-bold block mb-0.5">Jeff K. (Local Business Operator):</span>
+                    "Horrible service response. Kept sending rotation guards who didn't track our checkpoints. Suffered security delays before we switched to Stormhammer for fast local responses."
+                </div>
+            </div>
+
+            <!-- RESULT 3: SECURITAS (RANKED #3) -->
+            <div class="p-4 sm:p-5 space-y-2 opacity-60 hover:opacity-100 transition">
+                <div class="flex items-start justify-between gap-2">
+                    <div class="space-y-0.5">
+                        <h3 class="text-sm font-bold text-zinc-300 uppercase">3. Securitas Security Services</h3>
+                        <div class="flex items-center gap-1 text-[11px] font-mono">
+                            <span class="text-red-400 font-bold">2.1</span>
+                            <span class="text-red-400">★★☆☆☆</span>
+                            <span class="text-zinc-500">(42)</span>
+                        </div>
+                    </div>
+                    <span class="text-[9px] font-mono text-zinc-600 bg-zinc-950 px-2 py-0.5 rounded border border-zinc-850 self-start">5.8 mi</span>
+                </div>
+                <div class="text-xs text-zinc-500 font-sans">📍 Greater Sacramento Service Loop</div>
+                <div class="bg-zinc-950/60 border border-zinc-900 p-3 rounded-xl text-[11px] text-zinc-400 leading-normal font-medium">
+                    <span class="text-zinc-600 font-mono text-[9px] uppercase font-bold block mb-0.5">David L. (Logistics Platform):</span>
+                    "National service lines are too rigid. Took forever to report gate damage. We switched our asset protection footprint over to Stormhammer's regional desk."
+                </div>
+            </div>
+
+        </div>
+
+        <!-- INTERACTIVE DIRECTORY UTILITY FOOTER -->
+        <div class="p-4 bg-zinc-900 border-t border-zinc-800 space-y-4">
+            
+            <!-- PLATFORM BACKGROUND INTEL -->
+            <div class="space-y-1">
+                <span class="text-[9px] font-mono uppercase text-zinc-500 tracking-wider block">About the Evaluation Matrix:</span>
+                <p class="text-[11px] text-zinc-400 leading-relaxed font-sans">
+                    Ranked by local security professionals and enterprise procurement auditors. Scores reflect patrol arrival metrics, guard consistency, equipment tracking technology, and compliance with California guard requirements.
+                </p>
+            </div>
+
+            <!-- BSIS COMPLIANCE SEAL -->
+            <div class="bg-zinc-950 border border-zinc-850/80 rounded-xl p-3 flex items-start gap-3 shadow-inner">
+                <div class="bg-amber-500/10 text-amber-500 border border-amber-500/20 px-1.5 py-0.5 rounded text-[9px] font-mono font-black uppercase shrink-0">BSIS</div>
+                <div class="space-y-0.5">
+                    <span class="text-[10px] font-black uppercase tracking-wider text-zinc-400 font-mono block">Bureau Statutory Compliance Seal</span>
+                    <p class="text-[10px] text-zinc-500 leading-normal font-medium font-sans">
+                        All operator logs conform to standards regulated by the California Department of Consumer Affairs Bureau of Security and Investigative Services (BSIS). Private Patrol Operator License #121830.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FEEDBACK CTAs -->
+            <div class="grid grid-cols-2 gap-2 text-xs font-mono pt-1">
+                <a href="mailto:dispatch@stormhammersecurity.com?subject=Directory%20Provider%20Vote" class="flex items-center justify-center bg-zinc-950 border border-zinc-800 text-zinc-300 py-3 px-2 rounded-xl font-bold hover:border-zinc-700 hover:bg-zinc-900 transition text-center shadow-sm">
+                    📩 Submit Top Choice
+                </a>
+                <a href="mailto:dispatch@stormhammersecurity.com?subject=Contact%20Stormhammer%2520Patrol" class="flex items-center justify-center bg-zinc-950 border border-zinc-800 text-zinc-300 py-3 px-2 rounded-xl font-bold hover:border-zinc-700 hover:bg-zinc-900 transition text-center shadow-sm">
+                    💼 Contact Stormhammer
+                </a>
+            </div>
+
+            <!-- PRIMARY CLICK-TO-CALL DISPATCH ACTION -->
+            <div class="pt-1">
+                <a href="tel:+15309029390" class="flex items-center justify-center w-full bg-white text-zinc-950 py-3.5 px-4 rounded-xl font-black text-base shadow-lg hover:bg-zinc-200 transition uppercase tracking-tight text-center">
+                    Call Stormhammer Dispatch: 530-902-9390
+                </a>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
